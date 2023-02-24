@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission08_Group2_6.Models;
 
@@ -13,9 +14,11 @@ namespace Mission08_Group2_6.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private TaskEntryContext taskContext { get; set; }
+
+        public HomeController(TaskEntryContext x)
         {
-            _logger = logger;
+            taskContext = x;
         }
 
         public IActionResult Index()
@@ -23,10 +26,43 @@ namespace Mission08_Group2_6.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Task()
         {
+            ViewBag.Category = taskContext.Categories.ToList(); // load categories
+
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Task(TaskEntry te)
+        {
+            if (ModelState.IsValid) // Validate data
+            {
+                taskContext.Add(te);  // add data to database
+                taskContext.SaveChanges(); // save data to database
+
+                return View("Index");
+            }
+
+            else // Go back to the add task page
+            {
+                ViewBag.Category = taskContext.Categories.ToList();
+                return View();
+            }
+            
+        }
+
+        public IActionResult Quadrant()
+        {
+            var tasks = taskContext.Entries
+                .Include(x => x.Category)
+                .ToList();
+
+            return View(tasks);
+
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

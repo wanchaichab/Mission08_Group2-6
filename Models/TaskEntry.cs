@@ -17,7 +17,7 @@ namespace Mission08_Group2_6.Models
         public string DueDate { get; set; }
         //• Quadrant(Required)
         [Required]
-        public string Quandrant { get; set; }
+        public string Quadrant { get; set; }
         // set up foreign key
         //• Category(Dropdown containing options: Home, School, Work, Church)
         public int CategoryId { get; set; }
