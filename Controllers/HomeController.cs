@@ -23,6 +23,10 @@ namespace Mission08_Group2_6.Controllers
 
         public IActionResult Index()
         {
+            //var tasks = taskContext.Entries
+            //    .Include(x => x.Category)
+            //    .ToList();
+
             return View();
         }
 
@@ -42,7 +46,7 @@ namespace Mission08_Group2_6.Controllers
                 taskContext.Add(te);  // add data to database
                 taskContext.SaveChanges(); // save data to database
 
-                return View("Index");
+                return View("Index", te);
             }
 
             else // Go back to the add task page

@@ -2,9 +2,49 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<div class="container round_outer round text-center matrix">
+    <div class="row ">
+        <div class="col outline">
+            <h1>TASK MATRIX</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 outline"></div>
+        <div class="col-5 outline">
+            <h5>Urgent:</h5>
+        </div>
+        <div class="col-5 outline">
+            <h5>Non-Urgent:</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 outline">
+            <h5>Important:</h5>
+        </div>
+        <div class="col-5 outline quad_segment">
+            <br>
+            <div class="task">
+                <b>Task</b> - Due Date | Category
+                <br>
+                Edit | Delete | <b>Finish</b>
+            </div>
+            <br>
+        </div>
+        <div class="col-5 outline quad_segment">
+            Stuff
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 outline">
+            <h5>Not Important:</h5>
+        </div>
+        <div class="col-5 outline quad_segment">
+            Stuff
 
+        </div>
+        <div class="col-5 outline quad_segment">
+            Stuff
+        </div>
+    </div>
+</div>
 

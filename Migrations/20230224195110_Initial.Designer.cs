@@ -8,7 +8,7 @@ using Mission08_Group2_6.Models;
 namespace Mission08_Group2_6.Migrations
 {
     [DbContext(typeof(TaskEntryContext))]
-    [Migration("20230224000608_Initial")]
+    [Migration("20230224195110_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,6 +29,28 @@ namespace Mission08_Group2_6.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Home"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "School"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Work"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Church"
+                        });
                 });
 
             modelBuilder.Entity("Mission08_Group2_6.Models.TaskEntry", b =>
@@ -46,9 +68,8 @@ namespace Mission08_Group2_6.Migrations
                     b.Property<string>("DueDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Quandrant")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Quadrant")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("TaskName")
                         .IsRequired()

@@ -27,7 +27,7 @@ namespace Mission08_Group2_6.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     TaskName = table.Column<string>(nullable: false),
                     DueDate = table.Column<string>(nullable: true),
-                    Quandrant = table.Column<string>(nullable: false),
+                    Quadrant = table.Column<int>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
                     Completed = table.Column<bool>(nullable: false)
                 },
@@ -41,6 +41,26 @@ namespace Mission08_Group2_6.Migrations
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 1, "Home" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 2, "School" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 3, "Work" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 4, "Church" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Entries_CategoryId",
