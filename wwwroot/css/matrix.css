@@ -1,0 +1,29 @@
+﻿:root {
+    --corner: 5px;
+}
+
+.matrix {
+    background-color: lightblue;
+}
+
+.task {
+    background-color: white;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    border-radius: var(--corner);
+}
+
+.quad_segment {
+    overflow-y: scroll;
+    height: 250px;
+}
+
+.outline {
+    border: black 0.5px solid;
+}
+
+.round_outer {
+    border: black 2px solid;
+    border-radius: var(--corner);
+}
