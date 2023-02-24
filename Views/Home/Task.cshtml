@@ -2,7 +2,7 @@
     ViewData["Title"] = "Task Creation";
 }
 
-@model Mission08_Group2-6.Models.TaskResponse
+@model Mission08_Group2-6.Models.TaskEntry
 
 <h2>Task Creation</h2>
 <h4>Fill out the information below</h4>
@@ -17,8 +17,8 @@
 </ul>
 <div class="container">
     <form method="post">
-        <label asp-for="Task">Task</label>
-        <input asp-for="Task" /><br />
+        <label asp-for="TaskName">Task</label>
+        <input asp-for="TaskName" /><br />
 
         <label asp-for="DueDate">Due Date</label>
         <input asp-for="DueDate" /><br />
@@ -47,6 +47,9 @@
             <option value=false>Not yet</option>
             <option value=true>Yes</option>
         </select><br />
+
+        <button type="Submit">Submit</button>
+        <div asp-validation-summary="All"></div>
     </form>
 </div>
 
