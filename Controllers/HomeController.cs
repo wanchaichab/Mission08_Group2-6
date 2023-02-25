@@ -57,6 +57,41 @@ namespace Mission08_Group2_6.Controllers
             
         }
 
+        [HttpGet]
+        public IActionResult Edit(int taskid)
+        {
+            ViewBag.Category = taskContext.Categories.ToList();
+
+            var task = taskContext.Entries.Single(x => x.TaskId == taskid);
+
+            return View("Task", task);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(TaskEntry te)
+        {
+            taskContext.Update(te);
+            taskContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int taskid)
+        {
+            var task = taskContext.Entries.Single(x => x.TaskId == taskid);
+            return View(task);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(TaskEntry te)
+        {
+            taskContext.Remove(te);
+            taskContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
