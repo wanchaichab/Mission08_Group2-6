@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Task Creation";
+    ViewData["Title"] = "Task Page";
 }
 
 @model Mission08_Group2_6.Models.TaskEntry
@@ -17,6 +17,7 @@
 </ul>
 <div class="container">
     <form method="post">
+        <div asp-validation-summary="All"></div>
         <label asp-for="TaskName">Task</label>
         <input asp-for="TaskName" /><br />
 
@@ -36,9 +37,9 @@
         <select asp-for="CategoryId">
             <option value="">Select a Category</option>
             @foreach (Category c in ViewBag.Category)
-        {
-            <option value="@c.CategoryId">@c.CategoryName</option>
-        }
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
         </select>
         <br />
 
@@ -49,7 +50,7 @@
         </select><br />
 
         <button type="Submit">Submit</button>
-        <div asp-validation-summary="All"></div>
+
     </form>
 </div>
 
