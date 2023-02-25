@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home";
 }
 
-<h1>Here are the tasks in sorted by quadrants.</h1>
+@model Dictionary<int, List<TaskEntry>>
 <div class="container round_outer round text-center matrix">
     <div class="row ">
         <div class="col outline">
@@ -24,15 +24,37 @@
         </div>
         <div class="col-5 outline quad_segment">
             <br>
-            <div class="task">
-                <b>Task</b> - Due Date | Category
+            @foreach (var task in Model[1])
+             {
+                <div class="task">
+                    <b>@task.TaskName</b> - @task.DueDate | @task.Category.CategoryName
+                    <br>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-TaskID="@task.TaskId">Edit</a> |
+                    <a asp-controller="Home" asp-action="Delete" asp-route-TaskID="@task.TaskId">Delete</a> |
+                    <form method="post" asp-action="Finish" class="form-inline d-inline">
+                        <button class="btn p-0 btn-link" type="submit">Finish</button>
+                        <input type="hidden" data-val="true" data-val-required="The TaskId field is required." id="TaskId" name="TaskId" value="@task.TaskId">
+                    </form>
+                </div>
                 <br>
-                Edit | Delete | <b>Finish</b>
-            </div>
-            <br>
+             }
         </div>
         <div class="col-5 outline quad_segment">
-            Stuff
+            <br>
+            @foreach (var task in Model[2])
+            {
+                <div class="task">
+                    <b>@task.TaskName</b> - @task.DueDate | @task.Category.CategoryName
+                    <br>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-TaskID="@task.TaskId">Edit</a> |
+                    <a asp-controller="Home" asp-action="Delete" asp-route-TaskID="@task.TaskId">Delete</a> |
+                    <form method="post" asp-action="Finish" class="form-inline d-inline">
+                        <button class="btn p-0 btn-link" type="submit">Finish</button>
+                        <input type="hidden" data-val="true" data-val-required="The TaskId field is required." id="TaskId" name="TaskId" value="@task.TaskId">
+                    </form>
+                </div>
+                <br>
+            }
         </div>
     </div>
     <div class="row">
@@ -40,11 +62,38 @@
             <h5>Not Important:</h5>
         </div>
         <div class="col-5 outline quad_segment">
-            Stuff
-
+            <br>
+            @foreach (var task in Model[3])
+            {
+                <div class="task">
+                    <b>@task.TaskName</b> - @task.DueDate | @task.Category.CategoryName
+                    <br>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-TaskID="@task.TaskId">Edit</a> |
+                    <a asp-controller="Home" asp-action="Delete" asp-route-TaskID="@task.TaskId">Delete</a> |
+                    <form method="post" asp-action="Finish" class="form-inline d-inline">
+                        <button class="btn p-0 btn-link" type="submit">Finish</button>
+                        <input type="hidden" data-val="true" data-val-required="The TaskId field is required." id="TaskId" name="TaskId" value="@task.TaskId">
+                    </form>
+                </div>
+                <br>
+            }
         </div>
         <div class="col-5 outline quad_segment">
-            Stuff
+            <br>
+            @foreach (var task in Model[4])
+            {
+                <div class="task">
+                    <b>@task.TaskName</b> - @task.DueDate | @task.Category.CategoryName
+                    <br>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-TaskID="@task.TaskId">Edit</a> |
+                    <a asp-controller="Home" asp-action="Delete" asp-route-TaskID="@task.TaskId">Delete</a> |
+                    <form method="post" asp-action="Finish" class="form-inline d-inline">
+                        <button class="btn p-0 btn-link" type="submit">Finish</button>
+                        <input type="hidden" data-val="true" data-val-required="The TaskId field is required." id="TaskId" name="TaskId" value="@task.TaskId">
+                    </form>
+                </div>
+                <br>
+            }
         </div>
     </div>
 </div>
