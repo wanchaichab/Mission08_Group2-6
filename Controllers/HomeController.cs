@@ -62,6 +62,7 @@ namespace Mission08_Group2_6.Controllers
         }
 
         [HttpGet]
+<<<<<<< HEAD
         public IActionResult Edit(int TaskID)
         {
             ViewBag.Category = taskContext.Categories.ToList(); // load categories
@@ -75,10 +76,28 @@ namespace Mission08_Group2_6.Controllers
         {
             taskContext.Update(response);
             taskContext.SaveChanges();
+=======
+        public IActionResult Edit(int taskid)
+        {
+            ViewBag.Category = taskContext.Categories.ToList();
+
+            var task = taskContext.Entries.Single(x => x.TaskId == taskid);
+
+            return View("Task", task);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(TaskEntry te)
+        {
+            taskContext.Update(te);
+            taskContext.SaveChanges();
+
+>>>>>>> main
             return RedirectToAction("Index");
         }
 
         [HttpGet]
+<<<<<<< HEAD
         public IActionResult Delete(int TaskID)
         {
             var task = taskContext.Entries.Single(x => x.TaskId == TaskID);
@@ -103,6 +122,23 @@ namespace Mission08_Group2_6.Controllers
             return Redirect("Index");
         }
 
+=======
+        public IActionResult Delete(int taskid)
+        {
+            var task = taskContext.Entries.Single(x => x.TaskId == taskid);
+            return View(task);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(TaskEntry te)
+        {
+            taskContext.Remove(te);
+            taskContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+>>>>>>> main
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
