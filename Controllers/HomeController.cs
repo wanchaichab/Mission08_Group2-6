@@ -23,11 +23,11 @@ namespace Mission08_Group2_6.Controllers
 
         public IActionResult Index()
         {
-            //var tasks = taskContext.Entries
-            //    .Include(x => x.Category)
-            //    .ToList();
+            var tasks = taskContext.Entries
+                .Include(x => x.Category)
+                .ToList();
 
-            return View();
+            return View(tasks);
         }
 
         [HttpGet]
@@ -55,16 +55,6 @@ namespace Mission08_Group2_6.Controllers
                 return View();
             }
             
-        }
-
-        public IActionResult Quadrant()
-        {
-            var tasks = taskContext.Entries
-                .Include(x => x.Category)
-                .ToList();
-
-            return View(tasks);
-
         }
 
 

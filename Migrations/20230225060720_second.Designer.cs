@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mission08_Group2_6.Models;
 
 namespace Mission08_Group2_6.Migrations
 {
     [DbContext(typeof(TaskEntryContext))]
-    partial class TaskEntryContextModelSnapshot : ModelSnapshot
+    [Migration("20230225060720_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
