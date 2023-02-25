@@ -14,16 +14,15 @@ namespace Mission08_Group2_6.Models
         [Required(ErrorMessage ="Please provide a task name.")]
         public string TaskName { get; set; }
         //• Due Date
-        public string? DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
         //• Quadrant(Required)
         [Required]
         public int Quadrant { get; set; }
 
-
         // set up foreign key
         //• Category(Dropdown containing options: Home, School, Work, Church)
         public int? CategoryId { get; set; }
-        public Category? Category { get; set; }
+        public Category Category { get; set; }
         //• Completed(True/False)
         public bool Completed { get; set; }
         
