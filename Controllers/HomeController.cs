@@ -81,13 +81,13 @@ namespace Mission08_Group2_6.Controllers
         }
 
         [HttpGet]
-
         public IActionResult Delete(int TaskID)
         {
             var task = taskContext.Entries.Single(x => x.TaskId == TaskID);
 
             return View(task);
         }
+
         [HttpPost]
         public IActionResult Delete(TaskEntry response)
         {
