@@ -8,7 +8,7 @@
 <h4>Fill out the information below</h4>
 <h4>Be sure to include the name of your task, the quadrant it's 
     in, and whether the task has been completed or not. The 
-    quadrants are as follows:'</h4>'
+    quadrants are as follows: </h4>
 <ul>
     <li>Quadrant 1: Urgent/Important</li>
     <li>Quadrant 2: Not Urgent/Important</li>
@@ -24,7 +24,7 @@
         <input type="date" asp-for="DueDate" /><br />
 
         <label asp-for="Quadrant">Quadrant</label>
-        <select asp-for="Category">
+        <select asp-for="Quadrant">
             <option value="">Select a Quadrant</option>
             <option value="1">Quadrant 1</option>
             <option value="2">Quadrant 2</option>
@@ -32,8 +32,8 @@
             <option value="4">Quadrant 4</option>
         </select><br />
 
-        <label asp-for="Category">Category</label>
-        <select asp-for="Category">
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId">
             <option value="">Select a Category</option>
             @foreach (Category c in ViewBag.Category)
         {
